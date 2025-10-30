@@ -942,11 +942,11 @@ classDiagram
         +DateTime created_at
     }
     
-    User "1" -- "*" Skill : has skills
-    User "1" -- "*" CareerInterest : has interests
-    User "1" -- "*" Badge : earned badges
-    User "1" -- "*" UserFollow : following
-    User "1" -- "*" UserFollow : followers
+    User "1" --> "*" Skill : has_skills
+    User "1" --> "*" CareerInterest : has_interests
+    User "1" --> "*" Badge : earned_badges
+    User "1" --> "*" UserFollow : following
+    User "1" --> "*" UserFollow : followers
 ```
 
 #### 2. Learning Management Domain
@@ -1051,17 +1051,17 @@ classDiagram
         +Integer points_earned
     }
     
-    CareerPath "1" -- "*" LearningModule : contains
-    LearningModule "1" -- "*" Quiz : includes
-    Quiz "1" -- "*" Question : has
-    Question "1" -- "*" QuestionChoice : has choices
-    User "1" -- "*" UserProgress : tracks
-    CareerPath "1" -- "*" UserProgress : enrolled in
-    LearningModule "1" -- "*" UserProgress : progress on
-    User "1" -- "*" QuizAttempt : attempts
-    Quiz "1" -- "*" QuizAttempt : attempts of
-    QuizAttempt "1" -- "*" Answer : contains
-    Question "1" -- "*" Answer : answered
+    CareerPath "1" --> "*" LearningModule : contains
+    LearningModule "1" --> "*" Quiz : includes
+    Quiz "1" --> "*" Question : has
+    Question "1" --> "*" QuestionChoice : has_choices
+    User "1" --> "*" UserProgress : tracks
+    CareerPath "1" --> "*" UserProgress : enrolled_in
+    LearningModule "1" --> "*" UserProgress : progress_on
+    User "1" --> "*" QuizAttempt : attempts
+    Quiz "1" --> "*" QuizAttempt : attempts_of
+    QuizAttempt "1" --> "*" Answer : contains
+    Question "1" --> "*" Answer : answered
 ```
 
 #### 3. Project Collaboration Domain
@@ -1171,21 +1171,21 @@ classDiagram
         +log_activity()
     }
     
-    Project "1" -- "*" ProjectMembership : has members
-    User "1" -- "*" ProjectMembership : participates in
-    Project "1" -- "*" ProjectTask : has tasks
-    ProjectTask "1" -- "*" TaskLabel : tagged with
-    User "1" -- "*" ProjectTask : assigned to
-    Project "1" -- "*" ProjectTag : tagged with
-    Project "1" -- "*" ProjectFile : contains
-    User "1" -- "*" ProjectFile : uploads
-    Project "1" -- "*" CodeReview : has reviews
-    User "1" -- "*" CodeReview : requests
-    User "1" -- "*" CodeReview : reviews
-    CodeReview "1" -- "*" ReviewComment : has comments
-    User "1" -- "*" ReviewComment : writes
-    Project "1" -- "*" ProjectActivity : logs
-    User "1" -- "*" ProjectActivity : performs
+    Project "1" --> "*" ProjectMembership : has_members
+    User "1" --> "*" ProjectMembership : participates_in
+    Project "1" --> "*" ProjectTask : has_tasks
+    ProjectTask "1" --> "*" TaskLabel : tagged_with
+    User "1" --> "*" ProjectTask : assigned_to
+    Project "1" --> "*" ProjectTag : tagged_with
+    Project "1" --> "*" ProjectFile : contains
+    User "1" --> "*" ProjectFile : uploads
+    Project "1" --> "*" CodeReview : has_reviews
+    User "1" --> "*" CodeReview : requests
+    User "1" --> "*" CodeReview : reviews
+    CodeReview "1" --> "*" ReviewComment : has_comments
+    User "1" --> "*" ReviewComment : writes
+    Project "1" --> "*" ProjectActivity : logs
+    User "1" --> "*" ProjectActivity : performs
 ```
 
 #### 4. Community and Social Domain
@@ -1280,20 +1280,20 @@ classDiagram
         +resolve()
     }
     
-    User "1" -- "*" Post : creates
-    Post "1" -- "*" Comment : has comments
-    User "1" -- "*" Comment : writes
-    Comment "1" -- "*" Comment : replies to
-    User "1" -- "*" PostLike : likes posts
-    Post "1" -- "*" PostLike : liked by
-    User "1" -- "*" CommentLike : likes comments
-    Comment "1" -- "*" CommentLike : liked by
-    Post "1" -- "*" PostTag : tagged with
-    Post "1" -- "*" Hashtag : contains
-    User "1" -- "*" Notification : receives
-    User "1" -- "*" Report : submits
-    Post "1" -- "*" Report : reported
-    Comment "1" -- "*" Report : reported
+    User "1" --> "*" Post : creates
+    Post "1" --> "*" Comment : has_comments
+    User "1" --> "*" Comment : writes
+    Comment "1" --> "*" Comment : replies_to
+    User "1" --> "*" PostLike : likes_posts
+    Post "1" --> "*" PostLike : liked_by
+    User "1" --> "*" CommentLike : likes_comments
+    Comment "1" --> "*" CommentLike : liked_by
+    Post "1" --> "*" PostTag : tagged_with
+    Post "1" --> "*" Hashtag : contains
+    User "1" --> "*" Notification : receives
+    User "1" --> "*" Report : submits
+    Post "1" --> "*" Report : reported
+    Comment "1" --> "*" Report : reported
 ```
 
 #### 5. AI Mentor Domain
@@ -1372,16 +1372,16 @@ classDiagram
         +get_insights()
     }
     
-    User "1" -- "*" ProjectMentorSession : initiates
-    Project "0..1" -- "*" ProjectMentorSession : related to
-    ProjectMentorSession "1" -- "*" AIMessage : contains
-    User "1" -- "*" CodeAnalysis : requests
-    ProjectMentorSession "1" -- "*" CodeAnalysis : includes
-    User "1" -- "*" LearningRecommendation : receives
-    LearningModule "1" -- "*" LearningRecommendation : recommends
-    User "1" -- "*" ProjectGuidance : requests
-    Project "1" -- "*" ProjectGuidance : guides
-    User "1" -- "1" AIMentorProfile : has
+    User "1" --> "*" ProjectMentorSession : initiates
+    Project "0..1" --> "*" ProjectMentorSession : related_to
+    ProjectMentorSession "1" --> "*" AIMessage : contains
+    User "1" --> "*" CodeAnalysis : requests
+    ProjectMentorSession "1" --> "*" CodeAnalysis : includes
+    User "1" --> "*" LearningRecommendation : receives
+    LearningModule "1" --> "*" LearningRecommendation : recommends
+    User "1" --> "*" ProjectGuidance : requests
+    Project "1" --> "*" ProjectGuidance : guides
+    User "1" --> "1" AIMentorProfile : has
 ```
 
 ## 📊 Database Schema
