@@ -260,9 +260,20 @@ npm test
 The following use case diagram shows the main functionalities for each actor in the CodeHub system:
 
 ```mermaid
-graph TB
-    subgraph "CodeHub System"
-        subgraph "User Management"
+graph LR
+    %% Actors on the left
+    Student([Student])
+    Instructor([Instructor])
+    Admin([Admin])
+    Guest([Guest])
+    Moderator([Moderator])
+    AISystem([AI System])
+    
+    %% Use Cases
+    subgraph System["CodeHub Platform"]
+        direction TB
+        
+        subgraph UserMgmt["User Management"]
             UC1[Register Account]
             UC2[Login/Logout]
             UC3[Manage Profile]
@@ -271,7 +282,7 @@ graph TB
             UC6[Earn Badges and Points]
         end
         
-        subgraph "Learning System"
+        subgraph Learning["Learning System"]
             UC7[Browse Career Paths]
             UC8[Enroll in Career Path]
             UC9[Access Learning Modules]
@@ -282,7 +293,7 @@ graph TB
             UC14[Rate and Review Modules]
         end
         
-        subgraph "Project Collaboration"
+        subgraph Projects["Project Collaboration"]
             UC15[Create Project]
             UC16[Manage Project Team]
             UC17[Assign Tasks]
@@ -293,7 +304,7 @@ graph TB
             UC22[Integrate with Git Repository]
         end
         
-        subgraph "AI Mentor"
+        subgraph AIMentor["AI Mentor"]
             UC23[Chat with AI Mentor]
             UC24[Analyze Code]
             UC25[Get Learning Recommendations]
@@ -301,7 +312,7 @@ graph TB
             UC27[Get Architecture Advice]
         end
         
-        subgraph "Community Features"
+        subgraph Community["Community Features"]
             UC28[Create Posts]
             UC29[Comment on Posts]
             UC30[Like Posts/Comments]
@@ -312,7 +323,7 @@ graph TB
             UC35[Report Content]
         end
         
-        subgraph "Administration"
+        subgraph Admin["Administration"]
             UC36[Manage Users]
             UC37[Create Learning Content]
             UC38[Moderate Community]
@@ -321,66 +332,75 @@ graph TB
         end
     end
     
-    Student([Student])
-    Instructor([Instructor])
-    Admin([Admin])
-    Guest([Guest])
-    Moderator([Moderator])
+    %% Student interactions
+    Student --> UC1
+    Student --> UC2
+    Student --> UC3
+    Student --> UC4
+    Student --> UC5
+    Student --> UC6
+    Student --> UC7
+    Student --> UC8
+    Student --> UC9
+    Student --> UC10
+    Student --> UC11
+    Student --> UC12
+    Student --> UC13
+    Student --> UC14
+    Student --> UC15
+    Student --> UC16
+    Student --> UC17
+    Student --> UC18
+    Student --> UC19
+    Student --> UC20
+    Student --> UC21
+    Student --> UC23
+    Student --> UC24
+    Student --> UC25
+    Student --> UC26
+    Student --> UC27
+    Student --> UC28
+    Student --> UC29
+    Student --> UC30
+    Student --> UC31
+    Student --> UC32
+    Student --> UC33
+    Student --> UC34
+    Student --> UC35
     
-    Student -->|performs| UC1
-    Student -->|performs| UC2
-    Student -->|performs| UC3
-    Student -->|performs| UC4
-    Student -->|performs| UC5
-    Student -->|performs| UC6
-    Student -->|performs| UC7
-    Student -->|performs| UC8
-    Student -->|performs| UC9
-    Student -->|performs| UC10
-    Student -->|performs| UC11
-    Student -->|performs| UC12
-    Student -->|performs| UC13
-    Student -->|performs| UC14
-    Student -->|performs| UC15
-    Student -->|performs| UC16
-    Student -->|performs| UC17
-    Student -->|performs| UC18
-    Student -->|performs| UC19
-    Student -->|performs| UC20
-    Student -->|performs| UC21
-    Student -->|performs| UC23
-    Student -->|performs| UC24
-    Student -->|performs| UC25
-    Student -->|performs| UC26
-    Student -->|performs| UC27
-    Student -->|performs| UC28
-    Student -->|performs| UC29
-    Student -->|performs| UC30
-    Student -->|performs| UC31
-    Student -->|performs| UC32
-    Student -->|performs| UC33
-    Student -->|performs| UC34
-    Student -->|performs| UC35
+    %% Instructor interactions
+    Instructor --> UC2
+    Instructor --> UC3
+    Instructor --> UC21
+    Instructor --> UC37
+    Instructor --> UC39
+    Instructor --> UC40
     
-    Instructor -->|performs| UC2
-    Instructor -->|performs| UC3
-    Instructor -->|performs| UC37
-    Instructor -->|performs| UC21
-    Instructor -->|performs| UC40
-    Instructor -->|performs| UC39
+    %% Admin interactions
+    Admin --> UC36
+    Admin --> UC37
+    Admin --> UC38
+    Admin --> UC39
+    Admin --> UC40
     
-    Admin -->|performs| UC36
-    Admin -->|performs| UC37
-    Admin -->|performs| UC38
-    Admin -->|performs| UC39
-    Admin -->|performs| UC40
+    %% Moderator interactions
+    Moderator --> UC35
+    Moderator --> UC38
     
-    Moderator -->|performs| UC38
-    Moderator -->|performs| UC35
+    %% Guest interactions
+    Guest --> UC1
+    Guest --> UC2
+    Guest --> UC7
     
-    Guest -->|performs| UC1
-    Guest -->|performs| UC2
-    Guest -->|performs| UC7
+    %% AI System interactions
+    AISystem --> UC11
+    AISystem --> UC12
+    AISystem --> UC23
+    AISystem --> UC24
+    AISystem --> UC25
+    AISystem --> UC26
+    AISystem --> UC27
+    AISystem --> UC6
 ```
 
 ### Sequence Diagrams
