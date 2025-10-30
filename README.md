@@ -430,7 +430,7 @@ sequenceDiagram
     
     Note over Student,Database: Student now browses career paths
     
-    Student->>Frontend: Click "Enroll in Career Path"
+    Student->>Frontend: Click Enroll in Career Path
     Frontend->>Backend: POST /api/learning/career-paths/{id}/enroll/
     Backend->>Database: Create enrollment record
     Database-->>Backend: Enrollment created
@@ -450,7 +450,7 @@ sequenceDiagram
     participant OpenAI
     participant Database
     
-    Student->>Frontend: Paste code and click "Analyze"
+    Student->>Frontend: Paste code and click Analyze
     Frontend->>Backend: POST /api/ai-mentor/analyze-code/
     Backend->>Redis: Check rate limit
     alt Rate limit exceeded
@@ -495,7 +495,7 @@ sequenceDiagram
     ChannelLayer->>WebSocket: Broadcast user joined
     WebSocket-->>Frontend1: User2 joined
     WebSocket-->>Frontend2: Connection established
-    Frontend1-->>Student1: Show "User2 joined"
+    Frontend1-->>Student1: Show User2 joined
     
     Student1->>Frontend1: Type code changes
     Frontend1->>WebSocket: Send code delta
@@ -523,7 +523,7 @@ sequenceDiagram
     participant Database
     participant CeleryWorker
     
-    Student->>Frontend: Click "Start Quiz"
+    Student->>Frontend: Click Start Quiz
     Frontend->>Backend: POST /api/learning/quizzes/{id}/start/
     Backend->>Database: Create quiz attempt
     Backend->>Database: Fetch quiz questions
@@ -536,7 +536,7 @@ sequenceDiagram
         Frontend->>Frontend: Store answer locally
     end
     
-    Student->>Frontend: Click "Submit Quiz"
+    Student->>Frontend: Click Submit Quiz
     Frontend->>Backend: POST /api/learning/quizzes/{id}/submit/
     Backend->>Database: Store answers
     Backend->>CeleryWorker: Queue grading task (async)
@@ -568,7 +568,7 @@ sequenceDiagram
     participant Notification
     participant EmailService
     
-    Developer->>Frontend1: Click "Request Code Review"
+    Developer->>Frontend1: Click Request Code Review
     Frontend1->>Frontend1: Select reviewer
     Frontend1->>Backend: POST /api/projects/{id}/reviews/
     Backend->>Database: Create review request
@@ -600,7 +600,7 @@ sequenceDiagram
         Backend-->>Frontend2: Comment saved
     end
     
-    Reviewer->>Frontend2: Click "Submit Review"
+    Reviewer->>Frontend2: Click Submit Review
     Frontend2->>Backend: PATCH /api/projects/reviews/{id}/
     Backend->>Database: Update review status
     Backend->>Notification: Notify developer
@@ -608,7 +608,7 @@ sequenceDiagram
     Frontend2-->>Reviewer: Show success message
     
     Notification-->>Frontend1: Real-time notification
-    Frontend1-->>Developer: "Review completed" notification
+    Frontend1-->>Developer: Review completed notification
 ```
 
 ### Activity Diagrams
