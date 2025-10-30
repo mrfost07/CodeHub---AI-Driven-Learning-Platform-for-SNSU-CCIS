@@ -887,8 +887,8 @@ classDiagram
         +String password_hash
         +String first_name
         +String last_name
-        +String role [admin, instructor, student, guest, moderator]
-        +String program [bsit, bscs, bsis, other]
+        +String role
+        +String program
         +Integer year_level
         +String student_id
         +String bio
@@ -957,8 +957,8 @@ classDiagram
         +UUID id
         +String name
         +String description
-        +String difficulty [beginner, intermediate, advanced]
-        +String program [bsit, bscs, bsis]
+        +String difficulty
+        +String program
         +Integer estimated_hours
         +Boolean snsu_ccis_specific
         +Integer order
@@ -974,7 +974,7 @@ classDiagram
         +UUID id
         +String title
         +String description
-        +String module_type [video, text, interactive, quiz, project]
+        +String module_type
         +String difficulty
         +String content_url
         +TextField text_content
@@ -1007,7 +1007,7 @@ classDiagram
     class Question {
         +UUID id
         +String question_text
-        +String question_type [single, multiple, true_false, short_answer]
+        +String question_type
         +JSONField correct_answer
         +Integer points
         +Integer order
@@ -1039,7 +1039,7 @@ classDiagram
         +Integer time_taken_seconds
         +DateTime started_at
         +DateTime submitted_at
-        +String status [in_progress, completed]
+        +String status
         +submit()
         +grade()
     }
@@ -1072,8 +1072,8 @@ classDiagram
         +UUID id
         +String name
         +String description
-        +String status [planning, active, completed, archived]
-        +String visibility [public, private, team]
+        +String status
+        +String visibility
         +String github_repo
         +String gitlab_repo
         +Boolean is_snsu_ccis_project
@@ -1092,7 +1092,7 @@ classDiagram
     
     class ProjectMembership {
         +UUID id
-        +String role [owner, admin, member, viewer]
+        +String role
         +DateTime joined_at
         +Boolean is_active
         +change_role()
@@ -1103,8 +1103,8 @@ classDiagram
         +UUID id
         +String title
         +String description
-        +String status [todo, in_progress, review, completed]
-        +String priority [low, medium, high, urgent]
+        +String status
+        +String priority
         +DateTime due_date
         +DateTime completed_at
         +DateTime created_at
@@ -1142,7 +1142,7 @@ classDiagram
     
     class CodeReview {
         +UUID id
-        +String status [pending, in_progress, completed, rejected]
+        +String status
         +TextField code_snippet
         +TextField review_notes
         +TextField ai_analysis
@@ -1157,7 +1157,7 @@ classDiagram
         +UUID id
         +Integer line_number
         +TextField comment_text
-        +String comment_type [suggestion, issue, question, praise]
+        +String comment_type
         +DateTime created_at
         +DateTime updated_at
     }
@@ -1198,7 +1198,7 @@ classDiagram
         +TextField content
         +JSONField code_snippet
         +ImageField image
-        +String post_type [discussion, question, showcase, announcement]
+        +String post_type
         +Boolean is_pinned
         +Boolean is_locked
         +Integer like_count
@@ -1270,9 +1270,9 @@ classDiagram
     
     class Report {
         +UUID id
-        +String report_type [spam, inappropriate, harassment, other]
+        +String report_type
         +TextField reason
-        +String status [pending, reviewed, resolved, dismissed]
+        +String status
         +DateTime created_at
         +DateTime resolved_at
         +submit()
@@ -1302,8 +1302,8 @@ classDiagram
 classDiagram
     class ProjectMentorSession {
         +UUID id
-        +String session_type [general, code_review, project_guidance, learning_path]
-        +String status [active, completed, archived]
+        +String session_type
+        +String status
         +DateTime started_at
         +DateTime ended_at
         +start()
@@ -1313,7 +1313,7 @@ classDiagram
     
     class AIMessage {
         +UUID id
-        +String sender [user, ai]
+        +String sender
         +TextField message
         +JSONField metadata
         +Integer tokens_used
@@ -1326,7 +1326,7 @@ classDiagram
         +UUID id
         +TextField code_snippet
         +String language
-        +String analysis_type [bug_detection, performance, security, best_practices]
+        +String analysis_type
         +JSONField analysis_result
         +JSONField suggestions
         +Integer complexity_score
@@ -1350,7 +1350,7 @@ classDiagram
     
     class ProjectGuidance {
         +UUID id
-        +String guidance_type [architecture, tech_stack, implementation]
+        +String guidance_type
         +TextField question
         +TextField guidance
         +JSONField resources
