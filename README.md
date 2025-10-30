@@ -814,7 +814,7 @@ flowchart TD
     Start([User Opens Community]) --> ViewFeed[View Personalized Feed]
     ViewFeed --> UserAction{User Action?}
     
-    UserAction -->|Create Post| CreatePost[Click "Create Post"]
+    UserAction -->|Create Post| CreatePost[Click Create Post]
     UserAction -->|View Post| ViewPost[Click on Post]
     UserAction -->|Search| SearchContent[Search Posts]
     
